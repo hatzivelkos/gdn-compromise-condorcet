@@ -16,7 +16,7 @@ No external Wolfram Language packages are required.
 
 ## Repository structure
 
-```text
+
 gdn-compromise-condorcet/
 │
 ├── notebooks/
@@ -31,9 +31,11 @@ gdn-compromise-condorcet/
 │   ├── tables/
 │   └── figures/
 │
-├── README.md
-└── LICENSE
-```
+├── .gitignore
+├── CITATION.cff
+├── LICENSE
+└── README.md
+
 
 The three notebooks have distinct roles:
 

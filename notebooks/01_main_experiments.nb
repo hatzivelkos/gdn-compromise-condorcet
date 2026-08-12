@@ -1,0 +1,2126 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     81791,       2118]
+NotebookOptionsPosition[     75268,       2003]
+NotebookOutlinePosition[     75669,       2019]
+CellTagsIndexPosition[     75626,       2016]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "0"}]}], ")"}], " ", "Project", " ", "root", " ", 
+     RowBox[{"setup", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"projRoot", "=", 
+     RowBox[{"DirectoryName", "[", 
+      RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"srcDir", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projRoot", ",", "\"\<src\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"outDir", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projRoot", ",", "\"\<output\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"figDir", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"outDir", ",", "\"\<figures\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"tabDir", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"outDir", ",", "\"\<tables\>\""}], "}"}], "]"}]}], ";"}], "\n",
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "outDir", "]"}]}], ",", 
+      RowBox[{"CreateDirectory", "[", "outDir", "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "figDir", "]"}]}], ",", 
+      RowBox[{"CreateDirectory", "[", "figDir", "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "tabDir", "]"}]}], ",", 
+      RowBox[{"CreateDirectory", "[", "tabDir", "]"}]}], "]"}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "/@", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<projRoot = \>\"", "<>", "projRoot"}], ",", 
+       RowBox[{"\"\<srcDir = \>\"", "<>", "srcDir"}], ",", 
+       RowBox[{"\"\<outDir = \>\"", "<>", "outDir"}]}], "}"}]}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9954514723548756`*^9, 3.995451479654318*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"c2492a25-1ac1-ae4a-8e6d-189991bc2162"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"projRoot = C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\\"\>"], "Print",
+ CellChangeTimes->{3.995451533385395*^9, 3.995460055396229*^9, 
+  3.995468922664461*^9, 3.995469043582962*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"4bae2287-cd58-1246-8ea8-0006b18620b1"],
+
+Cell[BoxData["\<\"srcDir = C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\src\"\>"], "Print",
+ CellChangeTimes->{3.995451533385395*^9, 3.995460055396229*^9, 
+  3.995468922664461*^9, 3.99546904359898*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"a654fd99-2e44-ee4f-8ebf-510a74219b87"],
+
+Cell[BoxData["\<\"outDir = C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\"\>"], "Print",
+ CellChangeTimes->{3.995451533385395*^9, 3.995460055396229*^9, 
+  3.995468922664461*^9, 3.99546904359898*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"a054b6fd-f368-bd40-b37a-bfd76d966502"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "1"}]}], ")"}], " ", "Load", " ", 
+     RowBox[{"modules", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcDir", ",", "\"\<01_Generators.wl\>\""}], "}"}], "]"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcDir", ",", "\"\<02_Profile.wl\>\""}], "}"}], "]"}], "]"}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcDir", ",", "\"\<03_Metrics.wl\>\""}], "}"}], "]"}], "]"}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcDir", ",", "\"\<04_Rules.wl\>\""}], "}"}], "]"}], "]"}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcDir", ",", "\"\<05_ExperimentRunner.wl\>\""}], "}"}], 
+      "]"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcDir", ",", "\"\<05b_ExperimentRunnerGap.wl\>\""}], "}"}], 
+      "]"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Get", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcDir", ",", "\"\<06_ResultsFormat.wl\>\""}], "}"}], "]"}], 
+     "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Loaded modules OK.\>\"", "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9954515937890244`*^9, 3.995451597318575*^9}, {
+  3.995460046751669*^9, 3.9954600477121925`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"cd715ff7-ecb4-2a4e-bd46-8cb9bd2909c6"],
+
+Cell[BoxData["\<\"Loaded modules OK.\"\>"], "Print",
+ CellChangeTimes->{
+  3.995451599949709*^9, {3.995460051729883*^9, 3.9954600573600674`*^9}, 
+   3.995468925716198*^9, 3.9954690469580555`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"e1a27e9f-f8d2-e94e-9091-01f0c0529f42"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "2"}]}], ")"}], " ", "Main", " ", "experiment", " ", 
+     RowBox[{"configuration", "--"}]}], "-"}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"baseSeed", "=", "123456"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"useParallel", "=", "True"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"tieBreakMain", "=", "\"\<RandomSeeded\>\""}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{"useParallel", ",", 
+      RowBox[{
+       RowBox[{"LaunchKernels", "[", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<Kernels: \>\"", ",", 
+         RowBox[{"Length", "@", 
+          RowBox[{"Kernels", "[", "]"}]}]}], "]"}], ";"}]}], "]"}], ";"}], 
+   "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Profile", " ", "sizes"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mListMain", "=", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "5", ",", "7", ",", "10"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"nListMain", "=", 
+     RowBox[{"{", "51", "}"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Preference", "-", 
+     RowBox[{"model", " ", "parameters"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"phiListMain", "=", 
+     RowBox[{"{", "0.15", "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"lambdaListMain", "=", 
+     RowBox[{"N", "@", 
+      RowBox[{"Range", "[", 
+       RowBox[{"0", ",", "1", ",", "0.1"}], "]"}]}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Rule", " ", "parameters"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"qListMain", "=", 
+     RowBox[{"{", 
+      RowBox[{"2", "/", "3"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"pListMain", "=", 
+     RowBox[{"{", 
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"Log", "[", "3", "]"}], "/", 
+        RowBox[{"Log", "[", "2", "]"}]}], "]"}], "}"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Monte", " ", "Carlo", " ", "settings"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Smain", "=", "2000"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"topKListMain", "=", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "3"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<BaseSeed\>\"", "->", "baseSeed"}], ",", 
+       RowBox[{"\"\<Parallel\>\"", "->", "useParallel"}], ",", 
+       RowBox[{"\"\<m\>\"", "->", "mListMain"}], ",", 
+       RowBox[{"\"\<n\>\"", "->", "nListMain"}], ",", 
+       RowBox[{"\"\<phi\>\"", "->", "phiListMain"}], ",", 
+       RowBox[{"\"\<lambda\>\"", "->", "lambdaListMain"}], ",", 
+       RowBox[{"\"\<q\>\"", "->", "qListMain"}], ",", 
+       RowBox[{"\"\<p\>\"", "->", "pListMain"}], ",", 
+       RowBox[{"\"\<S\>\"", "->", "Smain"}], ",", 
+       RowBox[{"\"\<TopK\>\"", "->", "topKListMain"}]}], "|>"}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.995451846484432*^9, 3.9954518524097614`*^9}, {
+  3.9954602985430946`*^9, 3.995460299496134*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"1fdb9c94-7774-2940-bf5a-07e67cdf9aca"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Kernels: \"\>", "\[InvisibleSpace]", "6"}],
+  SequenceForm["Kernels: ", 6],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9954518646220913`*^9, 3.9954603127017784`*^9, {3.995469013976061*^9, 
+   3.995469020462908*^9}, 3.9954690592459717`*^9},
+ CellLabel->
+  "During evaluation of \
+In[18]:=",ExpressionUUID->"037bdf86-ba8b-1245-8e74-2c6a40a35bfd"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"BaseSeed\"\>", "\[Rule]", "123456"}], ",", 
+   RowBox[{"\<\"Parallel\"\>", "\[Rule]", "True"}], ",", 
+   RowBox[{"\<\"m\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "5", ",", "7", ",", "10"}], "}"}]}], ",", 
+   RowBox[{"\<\"n\"\>", "\[Rule]", 
+    RowBox[{"{", "51", "}"}]}], ",", 
+   RowBox[{"\<\"phi\"\>", "\[Rule]", 
+    RowBox[{"{", "0.15`", "}"}]}], ",", 
+   RowBox[{"\<\"lambda\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0.`", ",", "0.1`", ",", "0.2`", ",", "0.30000000000000004`", ",", 
+      "0.4`", ",", "0.5`", ",", "0.6000000000000001`", ",", 
+      "0.7000000000000001`", ",", "0.8`", ",", "0.9`", ",", "1.`"}], "}"}]}], 
+   ",", 
+   RowBox[{"\<\"q\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     FractionBox["2", "3"], "}"}]}], ",", 
+   RowBox[{"\<\"p\"\>", "\[Rule]", 
+    RowBox[{"{", "1.5849625007211563`", "}"}]}], ",", 
+   RowBox[{"\<\"S\"\>", "\[Rule]", "2000"}], ",", 
+   RowBox[{"\<\"TopK\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "3"}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Print",
+ CellChangeTimes->{
+  3.9954518646220913`*^9, 3.9954603127017784`*^9, {3.995469013976061*^9, 
+   3.995469020462908*^9}, 3.9954690592519855`*^9},
+ CellLabel->
+  "During evaluation of \
+In[18]:=",ExpressionUUID->"c6ee8092-6f36-d04f-92e9-a6e1876454e1"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"--", 
+      RowBox[{"-", "3"}]}], ")"}], " ", "Main", " ", 
+    RowBox[{"experiment", ":", 
+     RowBox[{
+      RowBox[{"Polarized", " ", "Candidates", " ", 
+       RowBox[{
+        RowBox[{"(", "PC", ")"}], "--"}]}], "-"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Running main PC experiment...\>\"", "]"}], 
+    ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"resPCMain", "=", 
+     RowBox[{"RunExperimentGrid", "[", 
+      RowBox[{
+       RowBox[{"\"\<Models\>\"", "->", 
+        RowBox[{"{", "\"\<Polarized\>\"", "}"}]}], ",", 
+       RowBox[{"\"\<mList\>\"", "->", "mListMain"}], ",", 
+       RowBox[{"\"\<nList\>\"", "->", "nListMain"}], ",", 
+       RowBox[{"\"\<phiList\>\"", "->", "phiListMain"}], ",", 
+       RowBox[{"\"\<lambdaList\>\"", "->", "lambdaListMain"}], ",", 
+       RowBox[{"\"\<qList\>\"", "->", "qListMain"}], ",", 
+       RowBox[{"\"\<pList\>\"", "->", "pListMain"}], ",", 
+       RowBox[{"\"\<S\>\"", "->", "Smain"}], ",", 
+       RowBox[{"\"\<TopKList\>\"", "->", "topKListMain"}], ",", 
+       RowBox[{"\"\<MaxRank\>\"", "->", "Automatic"}], ",", 
+       RowBox[{"\"\<Parallel\>\"", "->", "useParallel"}], ",", 
+       RowBox[{"\"\<BaseSeed\>\"", "->", "baseSeed"}], ",", 
+       RowBox[{"\"\<TieBreak\>\"", "->", "tieBreakMain"}]}], "]"}]}], ";"}], 
+   "\n", "\n", 
+   RowBox[{
+    RowBox[{"dsPCMain", "=", 
+     RowBox[{"ResultsToLongDataset", "[", "resPCMain", "]"}]}], ";"}], "\n", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Export", " ", "PC", " ", "long", " ", "dataset", " ", "as", " ", "a", " ",
+      "standard", " ", "rectangular", " ", "CSV"}], "*)"}], 
+   RowBox[{
+    RowBox[{"pcFile", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"tabDir", ",", "\"\<main_pc_long.csv\>\""}], "}"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"pcRows", "=", 
+     RowBox[{"Normal", "@", "dsPCMain"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"pcColumns", "=", 
+     RowBox[{"Keys", "@", 
+      RowBox[{"First", "@", "pcRows"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"pcFile", ",", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{"#", ",", "pcColumns"}], "]"}], "&"}], ")"}], "/@", 
+         "pcRows"}], ",", "pcColumns"}], "]"}], ",", "\"\<CSV\>\""}], "]"}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Saved CSV: \>\"", ",", "pcFile"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"DumpSave", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"outDir", ",", "\"\<main_pc.mx\>\""}], "}"}], "]"}], ",", 
+      "resPCMain"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<PC completed. Settings = \>\"", ",", 
+      RowBox[{"Length", "[", "resPCMain", "]"}], ",", "\"\<; saved CSV: \>\"",
+       ",", "pcFile"}], "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9954519492452736`*^9, 3.9954519627458572`*^9}, 
+   3.9954580808402023`*^9},
+ CellLabel->"In[31]:=",ExpressionUUID->"22750e0d-edc5-0b48-bc02-4e508e3c59b8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Running main PC experiment...\"\>"], "Print",
+ CellChangeTimes->{3.995451965714838*^9, 3.995458084483988*^9, 
+  3.9954609290842247`*^9, 3.9954610690098953`*^9, 3.995469063189228*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"debae5a1-588c-e04f-9618-245bf8424688"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_pc_\
+long.csv\"\>"}],
+  SequenceForm[
+  "Saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_pc_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995451965714838*^9, 3.995458084483988*^9, 
+  3.9954609290842247`*^9, 3.9954610690098953`*^9, 3.9954693146778107`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"9e6f591d-0e75-0243-a89e-fba0a36de92b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"PC completed. Settings = \"\>", "\[InvisibleSpace]", "44", 
+   "\[InvisibleSpace]", "\<\"; saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_pc_\
+long.csv\"\>"}],
+  SequenceForm[
+  "PC completed. Settings = ", 44, "; saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_pc_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995451965714838*^9, 3.995458084483988*^9, 
+  3.9954609290842247`*^9, 3.9954610690098953`*^9, 3.9954693146778107`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"2bb9ffec-5a85-e94e-95fa-36bc5def3b1d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"--", 
+      RowBox[{"-", "4"}]}], ")"}], " ", "Main", " ", 
+    RowBox[{"experiment", ":", 
+     RowBox[{
+      RowBox[{"Opposite", " ", "Preferences", " ", 
+       RowBox[{
+        RowBox[{"(", "OP", ")"}], "--"}]}], "-"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Running main OP experiment...\>\"", "]"}], 
+    ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"resOPMain", "=", 
+     RowBox[{"RunExperimentGrid", "[", 
+      RowBox[{
+       RowBox[{"\"\<Models\>\"", "->", 
+        RowBox[{"{", "\"\<OppPrefs\>\"", "}"}]}], ",", 
+       RowBox[{"\"\<mList\>\"", "->", "mListMain"}], ",", 
+       RowBox[{"\"\<nList\>\"", "->", "nListMain"}], ",", 
+       RowBox[{"\"\<phiList\>\"", "->", "phiListMain"}], ",", 
+       RowBox[{"\"\<lambdaList\>\"", "->", "lambdaListMain"}], ",", 
+       RowBox[{"\"\<qList\>\"", "->", "qListMain"}], ",", 
+       RowBox[{"\"\<pList\>\"", "->", "pListMain"}], ",", 
+       RowBox[{"\"\<S\>\"", "->", "Smain"}], ",", 
+       RowBox[{"\"\<TopKList\>\"", "->", "topKListMain"}], ",", 
+       RowBox[{"\"\<MaxRank\>\"", "->", "Automatic"}], ",", 
+       RowBox[{"\"\<Parallel\>\"", "->", "useParallel"}], ",", 
+       RowBox[{"\"\<BaseSeed\>\"", "->", "baseSeed"}], ",", 
+       RowBox[{"\"\<TieBreak\>\"", "->", "tieBreakMain"}]}], "]"}]}], ";"}], 
+   "\n", "\n", 
+   RowBox[{
+    RowBox[{"dsOPMain", "=", 
+     RowBox[{"ResultsToLongDataset", "[", "resOPMain", "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Export", " ", "OP", " ", "long", " ", "dataset", " ", "as", " ", "a", " ",
+      "standard", " ", "rectangular", " ", "CSV"}], "*)"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"opFile", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"tabDir", ",", "\"\<main_op_long.csv\>\""}], "}"}], "]"}]}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"opRows", "=", 
+     RowBox[{"Normal", "@", "dsOPMain"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"opColumns", "=", 
+     RowBox[{"Keys", "@", 
+      RowBox[{"First", "@", "opRows"}]}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"opFile", ",", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{"#", ",", "opColumns"}], "]"}], "&"}], ")"}], "/@", 
+         "opRows"}], ",", "opColumns"}], "]"}], ",", "\"\<CSV\>\""}], "]"}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Saved CSV: \>\"", ",", "opFile"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"DumpSave", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"outDir", ",", "\"\<main_op.mx\>\""}], "}"}], "]"}], ",", 
+      "resOPMain"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<OP completed. Settings = \>\"", ",", 
+      RowBox[{"Length", "[", "resOPMain", "]"}], ",", "\"\<; saved CSV: \>\"",
+       ",", "opFile"}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.995452274981777*^9, 3.9954522791319065`*^9}, {
+  3.9954584405406933`*^9, 3.9954584455790653`*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"4b33ec5c-54aa-2e4a-97b9-60bf4e389512"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Running main OP experiment...\"\>"], "Print",
+ CellChangeTimes->{3.995452281761366*^9, 3.995458449550251*^9, 
+  3.995469385642008*^9},
+ CellLabel->
+  "During evaluation of \
+In[41]:=",ExpressionUUID->"ceb72304-555e-184c-b8b7-6f433a0b355a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_op_\
+long.csv\"\>"}],
+  SequenceForm[
+  "Saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_op_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995452281761366*^9, 3.995458449550251*^9, 
+  3.9954696356320553`*^9},
+ CellLabel->
+  "During evaluation of \
+In[41]:=",ExpressionUUID->"fa259c75-bce2-ec40-b3d8-22d9b9440007"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"OP completed. Settings = \"\>", "\[InvisibleSpace]", "44", 
+   "\[InvisibleSpace]", "\<\"; saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_op_\
+long.csv\"\>"}],
+  SequenceForm[
+  "OP completed. Settings = ", 44, "; saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_op_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995452281761366*^9, 3.995458449550251*^9, 
+  3.9954696356320553`*^9},
+ CellLabel->
+  "During evaluation of \
+In[41]:=",ExpressionUUID->"aa197868-7526-3346-a105-5e912fe59f67"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"--", 
+      RowBox[{"-", "5"}]}], ")"}], " ", "Main", " ", 
+    RowBox[{"experiment", ":", 
+     RowBox[{
+      RowBox[{"Impartial", " ", "Culture", " ", 
+       RowBox[{
+        RowBox[{"(", "IC", ")"}], "--"}]}], "-"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Running main IC experiment...\>\"", "]"}], 
+    ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"resICMain", "=", 
+     RowBox[{"RunExperimentGrid", "[", 
+      RowBox[{
+       RowBox[{"\"\<Models\>\"", "->", 
+        RowBox[{"{", "\"\<IC\>\"", "}"}]}], ",", 
+       RowBox[{"\"\<mList\>\"", "->", "mListMain"}], ",", 
+       RowBox[{"\"\<nList\>\"", "->", "nListMain"}], ",", 
+       RowBox[{"\"\<qList\>\"", "->", "qListMain"}], ",", 
+       RowBox[{"\"\<pList\>\"", "->", "pListMain"}], ",", 
+       RowBox[{"\"\<S\>\"", "->", "Smain"}], ",", 
+       RowBox[{"\"\<TopKList\>\"", "->", "topKListMain"}], ",", 
+       RowBox[{"\"\<MaxRank\>\"", "->", "Automatic"}], ",", 
+       RowBox[{"\"\<Parallel\>\"", "->", "useParallel"}], ",", 
+       RowBox[{"\"\<BaseSeed\>\"", "->", "baseSeed"}], ",", 
+       RowBox[{"\"\<TieBreak\>\"", "->", "tieBreakMain"}]}], "]"}]}], ";"}], 
+   "\n", "\n", 
+   RowBox[{
+    RowBox[{"dsICMain", "=", 
+     RowBox[{"ResultsToLongDataset", "[", "resICMain", "]"}]}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Export", " ", "IC", " ", "long", " ", "dataset", " ", "as", " ", "a", " ",
+      "standard", " ", "rectangular", " ", "CSV"}], "*)"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"icFile", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"tabDir", ",", "\"\<main_ic_long.csv\>\""}], "}"}], "]"}]}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"icRows", "=", 
+     RowBox[{"Normal", "@", "dsICMain"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"icColumns", "=", 
+     RowBox[{"Keys", "@", 
+      RowBox[{"First", "@", "icRows"}]}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"icFile", ",", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{"#", ",", "icColumns"}], "]"}], "&"}], ")"}], "/@", 
+         "icRows"}], ",", "icColumns"}], "]"}], ",", "\"\<CSV\>\""}], "]"}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Saved CSV: \>\"", ",", "icFile"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"DumpSave", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"outDir", ",", "\"\<main_ic.mx\>\""}], "}"}], "]"}], ",", 
+      "resICMain"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<IC completed. Settings = \>\"", ",", 
+      RowBox[{"Length", "[", "resICMain", "]"}], ",", "\"\<; saved CSV: \>\"",
+       ",", "icFile"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.995452663890894*^9, 3.995452669815525*^9}, {
+  3.9954587638718853`*^9, 3.9954587671822033`*^9}},
+ CellLabel->"In[51]:=",ExpressionUUID->"b948fd21-ecc5-e64a-9a44-80e2b7140e3a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Running main IC experiment...\"\>"], "Print",
+ CellChangeTimes->{3.995452672116762*^9, 3.995458769495281*^9, 
+  3.995469657701893*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"5dff9256-caec-5e4d-9d1d-7dc29d64afd3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_ic_\
+long.csv\"\>"}],
+  SequenceForm[
+  "Saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_ic_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995452672116762*^9, 3.995458769495281*^9, 
+  3.9954696801996403`*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"3d37ae75-80a5-364f-88a9-5e52ef83af17"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"IC completed. Settings = \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"; saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_ic_\
+long.csv\"\>"}],
+  SequenceForm[
+  "IC completed. Settings = ", 4, "; saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_ic_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995452672116762*^9, 3.995458769495281*^9, 
+  3.995469680215645*^9},
+ CellLabel->
+  "During evaluation of \
+In[51]:=",ExpressionUUID->"3c528c65-27c9-4248-8f0c-12e1d45d4b54"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"--", 
+      RowBox[{"-", "6"}]}], ")"}], " ", "Main", " ", 
+    RowBox[{"experiment", ":", 
+     RowBox[{
+      RowBox[{"Mallows", " ", 
+       RowBox[{"baseline", "--"}]}], "-"}]}]}], "*)"}], "\[IndentingNewLine]",
+   "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Running main Mallows experiment...\>\"", "]"}],
+     ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"resMallowsMain", "=", 
+     RowBox[{"RunExperimentGrid", "[", 
+      RowBox[{
+       RowBox[{"\"\<Models\>\"", "->", 
+        RowBox[{"{", "\"\<Mallows\>\"", "}"}]}], ",", 
+       RowBox[{"\"\<mList\>\"", "->", "mListMain"}], ",", 
+       RowBox[{"\"\<nList\>\"", "->", "nListMain"}], ",", 
+       RowBox[{"\"\<phiList\>\"", "->", "phiListMain"}], ",", 
+       RowBox[{"\"\<qList\>\"", "->", "qListMain"}], ",", 
+       RowBox[{"\"\<pList\>\"", "->", "pListMain"}], ",", 
+       RowBox[{"\"\<S\>\"", "->", "Smain"}], ",", 
+       RowBox[{"\"\<TopKList\>\"", "->", "topKListMain"}], ",", 
+       RowBox[{"\"\<MaxRank\>\"", "->", "Automatic"}], ",", 
+       RowBox[{"\"\<Parallel\>\"", "->", "useParallel"}], ",", 
+       RowBox[{"\"\<BaseSeed\>\"", "->", "baseSeed"}], ",", 
+       RowBox[{"\"\<TieBreak\>\"", "->", "tieBreakMain"}]}], "]"}]}], ";"}], 
+   "\n", "\n", 
+   RowBox[{
+    RowBox[{"dsMallowsMain", "=", 
+     RowBox[{"ResultsToLongDataset", "[", "resMallowsMain", "]"}]}], ";"}], 
+   "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Export", " ", "Mallows", " ", "long", " ", "dataset", " ", "as", " ", 
+     "a", " ", "standard", " ", "rectangular", " ", "CSV"}], "*)"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mallowsFile", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"tabDir", ",", "\"\<main_mallows_long.csv\>\""}], "}"}], 
+      "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mallowsRows", "=", 
+     RowBox[{"Normal", "@", "dsMallowsMain"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mallowsColumns", "=", 
+     RowBox[{"Keys", "@", 
+      RowBox[{"First", "@", "mallowsRows"}]}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"mallowsFile", ",", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{"#", ",", "mallowsColumns"}], "]"}], "&"}], ")"}], "/@", 
+         "mallowsRows"}], ",", "mallowsColumns"}], "]"}], 
+      ",", "\"\<CSV\>\""}], "]"}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Saved CSV: \>\"", ",", "mallowsFile"}], "]"}], ";"}], "\n", 
+   "\n", 
+   RowBox[{
+    RowBox[{"DumpSave", "[", 
+     RowBox[{
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"outDir", ",", "\"\<main_mallows.mx\>\""}], "}"}], "]"}], ",",
+       "resMallowsMain"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Mallows completed. Settings = \>\"", ",", 
+      RowBox[{"Length", "[", "resMallowsMain", "]"}], 
+      ",", "\"\<; saved CSV: \>\"", ",", "mallowsFile"}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.995452768199911*^9, 3.99545277232094*^9}, {
+  3.9954588709207706`*^9, 3.9954588744861965`*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"aaeaf239-53e9-d449-a1c6-6b25df2d0968"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Running main Mallows experiment...\"\>"], "Print",
+ CellChangeTimes->{3.9954527748521442`*^9, 3.9954588768681393`*^9, 
+  3.99546970068301*^9},
+ CellLabel->
+  "During evaluation of \
+In[61]:=",ExpressionUUID->"f874efac-2c66-974e-a58b-af3291c436e8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_\
+mallows_long.csv\"\>"}],
+  SequenceForm[
+  "Saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_mallows_long.\
+csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954527748521442`*^9, 3.9954588768681393`*^9, 
+  3.995469716874916*^9},
+ CellLabel->
+  "During evaluation of \
+In[61]:=",ExpressionUUID->"8c383ccf-a435-8c41-935b-6ed2d43d56b6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Mallows completed. Settings = \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"; saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_\
+mallows_long.csv\"\>"}],
+  SequenceForm[
+  "Mallows completed. Settings = ", 4, "; saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_mallows_long.\
+csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954527748521442`*^9, 3.9954588768681393`*^9, 
+  3.995469716874916*^9},
+ CellLabel->
+  "During evaluation of \
+In[61]:=",ExpressionUUID->"a184f95d-080d-6d4f-aa15-2bf12baaa854"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"===", "===", "===", "===", "===", "===", "==="}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"7", ")"}], " ", "Correct", " ", "per"}], "-", 
+    RowBox[{
+    "profile", " ", "Gap", " ", "experiment", " ", "for", " ", "IC", " ", 
+     "and", " ", "PC"}]}], "*)"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"===", "===", "===", "===", "==="}], "=", 
+    RowBox[{"===", "==="}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Running per-profile Gap experiment for IC and \
+PC...\>\"", "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"resGapMain", "=", 
+     RowBox[{"RunExperimentGridGap", "[", 
+      RowBox[{
+       RowBox[{"\"\<Models\>\"", "->", 
+        RowBox[{"{", 
+         RowBox[{"\"\<IC\>\"", ",", "\"\<Polarized\>\""}], "}"}]}], ",", 
+       RowBox[{"\"\<mList\>\"", "->", "mListMain"}], ",", 
+       RowBox[{"\"\<nList\>\"", "->", "nListMain"}], ",", 
+       RowBox[{"\"\<phiList\>\"", "->", "phiListMain"}], ",", 
+       RowBox[{"\"\<lambdaList\>\"", "->", "lambdaListMain"}], ",", 
+       RowBox[{"\"\<qList\>\"", "->", "qListMain"}], ",", 
+       RowBox[{"\"\<pList\>\"", "->", "pListMain"}], ",", 
+       RowBox[{"\"\<S\>\"", "->", "Smain"}], ",", 
+       RowBox[{"\"\<TopKList\>\"", "->", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2"}], "}"}]}], ",", 
+       RowBox[{"\"\<MaxRank\>\"", "->", "Automatic"}], ",", 
+       RowBox[{"\"\<Parallel\>\"", "->", "useParallel"}], ",", 
+       RowBox[{"\"\<BaseSeed\>\"", "->", "baseSeed"}], ",", 
+       RowBox[{"\"\<TieBreak\>\"", "->", "tieBreakMain"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"dsGapMain", "=", 
+     RowBox[{"ResultsToLongDatasetGap", "[", "resGapMain", "]"}]}], ";"}], 
+   "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"gapRowsMain", "=", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"Normal", "@", "dsGapMain"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", "\"\<Metric\>\"", "]"}], "===", "\"\<Gap\>\""}], 
+        "&"}]}], "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"gapColumnsMain", "=", 
+     RowBox[{"DeleteDuplicates", "@", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Keys", "/@", "gapRowsMain"}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"gapFileMain", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"tabDir", ",", "\"\<main_gap_long.csv\>\""}], "}"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Export", "[", 
+     RowBox[{"gapFileMain", ",", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{"#", ",", "gapColumnsMain", ",", "\"\<\>\""}], "]"}], 
+           "&"}], ")"}], "/@", "gapRowsMain"}], ",", "gapColumnsMain"}], 
+       "]"}], ",", "\"\<CSV\>\""}], "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Gap experiment completed. Settings = \>\"", ",", 
+      RowBox[{"Length", "[", "resGapMain", "]"}], ",", "\"\<; Gap rows = \>\"",
+       ",", 
+      RowBox[{"Length", "[", "gapRowsMain", "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Saved CSV: \>\"", ",", "gapFileMain"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9954603776239853`*^9, 3.995460389912798*^9}, 
+   3.9954736576021194`*^9},
+ CellLabel->
+  "In[251]:=",ExpressionUUID->"22c13313-411b-824b-9c03-3b7287325765"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Running per-profile Gap experiment for IC and PC...\"\>"], \
+"Print",
+ CellChangeTimes->{3.995460423225359*^9, 3.9954697227784634`*^9, 
+  3.995473669370289*^9},
+ CellLabel->
+  "During evaluation of \
+In[251]:=",ExpressionUUID->"91e133f6-0b3c-a048-876c-ef0d26414125"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Gap experiment completed. Settings = \"\>", "\[InvisibleSpace]",
+    "48", "\[InvisibleSpace]", "\<\"; Gap rows = \"\>", "\[InvisibleSpace]", 
+   "288"}],
+  SequenceForm[
+  "Gap experiment completed. Settings = ", 48, "; Gap rows = ", 288],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995460423225359*^9, 3.9954697227784634`*^9, 
+  3.995473962763935*^9},
+ CellLabel->
+  "During evaluation of \
+In[251]:=",ExpressionUUID->"ca79f8f3-8578-7245-aed3-b5ed3cd801ba"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\main_gap_\
+long.csv\"\>"}],
+  SequenceForm[
+  "Saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\main_gap_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995460423225359*^9, 3.9954697227784634`*^9, 
+  3.995473962763935*^9},
+ CellLabel->
+  "During evaluation of \
+In[251]:=",ExpressionUUID->"0ff9b8a6-9e32-0745-9fd9-f378bc5f4ce4"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"===", "===", "===", "===", "===", "==="}], "="}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"8", ")"}], " ", "Validate", " ", "exported", " ", "main", " ", 
+    "experiment", " ", "data"}], "*)"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"===", "===", "===", "===", "==="}], "=", 
+    RowBox[{"===", "===", "==="}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Validating exported main experiment data...\>\"", 
+     "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "importCSVRows", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"importCSVRows", "[", "file_String", "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"raw", ",", "header"}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"raw", "=", 
+         RowBox[{"Import", "[", 
+          RowBox[{"file", ",", "\"\<CSV\>\""}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"header", "=", 
+         RowBox[{"First", "[", "raw", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"AssociationThread", "[", 
+           RowBox[{"header", ",", "#"}], "]"}], "&"}], "/@", 
+         RowBox[{"Rest", "[", "raw", "]"}]}]}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"mainFiles", "=", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<IC\>\"", "->", "icFile"}], ",", 
+       RowBox[{"\"\<Mallows\>\"", "->", "mallowsFile"}], ",", 
+       RowBox[{"\"\<PC\>\"", "->", "pcFile"}], ",", 
+       RowBox[{"\"\<OP\>\"", "->", "opFile"}], ",", 
+       RowBox[{"\"\<Gap\>\"", "->", "gapFileMain"}]}], "|>"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"filesCheck", "=", 
+     RowBox[{"And", "@@", 
+      RowBox[{"(", 
+       RowBox[{"FileExistsQ", "/@", 
+        RowBox[{"Values", "[", "mainFiles", "]"}]}], ")"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", "filesCheck"}], ",", 
+      RowBox[{
+       RowBox[{
+       "Print", 
+        "[", "\"\<ERROR: One or more required CSV files are missing.\>\"", 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Print", "/@", 
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"Values", "[", "mainFiles", "]"}], ",", 
+          RowBox[{
+           RowBox[{"!", 
+            RowBox[{"FileExistsQ", "[", "#", "]"}]}], "&"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"rowsIC", "=", 
+     RowBox[{"importCSVRows", "[", "icFile", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"rowsMallows", "=", 
+     RowBox[{"importCSVRows", "[", "mallowsFile", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"rowsPC", "=", 
+     RowBox[{"importCSVRows", "[", "pcFile", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"rowsOP", "=", 
+     RowBox[{"importCSVRows", "[", "opFile", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"rowsGap", "=", 
+     RowBox[{"importCSVRows", "[", "gapFileMain", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Standard", " ", "runner", " ", 
+     RowBox[{"produces", ":", 
+      RowBox[{
+      "6", " ", "rules", " ", "x", " ", "8", " ", "metrics", " ", "per", " ", 
+       "setting", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"5", " ", "scalar", " ", "metrics"}], "+", "Top1"}], ",", 
+         "Top2", ",", "Top3"}], ")"}]}]}]}], "*)"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"expectedRowCounts", "=", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<IC\>\"", "->", 
+        RowBox[{"4", "*", "6", "*", "8"}]}], ",", 
+       RowBox[{"\"\<Mallows\>\"", "->", 
+        RowBox[{"4", "*", "6", "*", "8"}]}], ",", 
+       RowBox[{"\"\<PC\>\"", "->", 
+        RowBox[{"44", "*", "6", "*", "8"}]}], ",", 
+       RowBox[{"\"\<OP\>\"", "->", 
+        RowBox[{"44", "*", "6", "*", "8"}]}], ",", 
+       RowBox[{"\"\<Gap\>\"", "->", 
+        RowBox[{"48", "*", "6"}]}]}], "|>"}]}], ";"}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{
+    RowBox[{"actualRowCounts", "=", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<IC\>\"", "->", 
+        RowBox[{"Length", "[", "rowsIC", "]"}]}], ",", 
+       RowBox[{"\"\<Mallows\>\"", "->", 
+        RowBox[{"Length", "[", "rowsMallows", "]"}]}], ",", 
+       RowBox[{"\"\<PC\>\"", "->", 
+        RowBox[{"Length", "[", "rowsPC", "]"}]}], ",", 
+       RowBox[{"\"\<OP\>\"", "->", 
+        RowBox[{"Length", "[", "rowsOP", "]"}]}], ",", 
+       RowBox[{"\"\<Gap\>\"", "->", 
+        RowBox[{"Length", "[", "rowsGap", "]"}]}]}], "|>"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"rowCountCheck", "=", 
+     RowBox[{"actualRowCounts", "===", "expectedRowCounts"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"expectedRules", "=", 
+     RowBox[{"Sort", "@", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Borda\>\"", ",", "\"\<Plurality\>\"", 
+        ",", "\"\<Coombs\>\"", ",", "\"\<QR\>\"", ",", "\"\<SDM\>\"", 
+        ",", "\"\<Fallback\>\""}], "}"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"rulesCheck", "=", 
+     RowBox[{"And", "@@", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Sort", "@", 
+          RowBox[{"DeleteDuplicates", "[", 
+           RowBox[{"Lookup", "[", 
+            RowBox[{"rows", ",", "\"\<Rule\>\""}], "]"}], "]"}]}], "===", 
+         "expectedRules"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"rows", ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "rowsIC", ",", "rowsMallows", ",", "rowsPC", ",", "rowsOP", ",", 
+            "rowsGap"}], "}"}]}], "}"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"mainMetricsExpected", "=", 
+     RowBox[{"Sort", "@", 
+      RowBox[{"{", 
+       RowBox[{"\"\<NeverFirstRate\>\"", ",", "\"\<NoiseFlipRate\>\"", 
+        ",", "\"\<CondorcetExistRate\>\"", ",", "\"\<CondorcetEfficiency\>\"",
+         ",", "\"\<MidScore\>\"", ",", "\"\<Top1Acceptability\>\"", 
+        ",", "\"\<Top2Acceptability\>\"", ",", "\"\<Top3Acceptability\>\""}], 
+       "}"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"metricsCheck", "=", 
+     RowBox[{"And", "@@", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Sort", "@", 
+          RowBox[{"DeleteDuplicates", "[", 
+           RowBox[{"Lookup", "[", 
+            RowBox[{"rows", ",", "\"\<Metric\>\""}], "]"}], "]"}]}], "===", 
+         "mainMetricsExpected"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"rows", ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "rowsIC", ",", "rowsMallows", ",", "rowsPC", ",", "rowsOP"}], 
+           "}"}]}], "}"}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"gapMetricCheck", "=", 
+     RowBox[{
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Lookup", "[", 
+        RowBox[{"rowsGap", ",", "\"\<Metric\>\""}], "]"}], "]"}], "===", 
+      RowBox[{"{", "\"\<Gap\>\"", "}"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"numericCheck", "=", 
+     RowBox[{"And", "@@", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"And", "@@", 
+         RowBox[{"(", 
+          RowBox[{"NumericQ", "/@", 
+           RowBox[{"Lookup", "[", 
+            RowBox[{"rows", ",", "\"\<Value\>\""}], "]"}]}], ")"}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"rows", ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "rowsIC", ",", "rowsMallows", ",", "rowsPC", ",", "rowsOP", ",", 
+            "rowsGap"}], "}"}]}], "}"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"pipelineOK", "=", 
+     RowBox[{"And", "[", 
+      RowBox[{
+      "filesCheck", ",", "rowCountCheck", ",", "rulesCheck", ",", 
+       "metricsCheck", ",", "gapMetricCheck", ",", "numericCheck"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Expected row counts:       \>\"", ",", 
+      "expectedRowCounts"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Actual row counts:         \>\"", ",", "actualRowCounts"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Row counts correct:        \>\"", ",", "rowCountCheck"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<All six rules present:     \>\"", ",", "rulesCheck"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Main metrics correct:      \>\"", ",", "metricsCheck"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Gap metric correct:        \>\"", ",", "gapMetricCheck"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<All values numeric:        \>\"", ",", "numericCheck"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<All CSV files exist:       \>\"", ",", "filesCheck"}], 
+     "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<MAIN PIPELINE OK:           \>\"", ",", "pipelineOK"}], 
+     "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9954609976656837`*^9, 3.995461014929041*^9}},
+ CellLabel->
+  "In[260]:=",ExpressionUUID->"12578d0e-8398-704e-a4d8-a259a758f47f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Validating exported main experiment data...\"\>"], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.9954739825504627`*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"504f7c31-449f-ea42-9804-d8bf6a801045"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expected row counts:       \"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"IC\"\>", "\[Rule]", "192"}], ",", 
+     RowBox[{"\<\"Mallows\"\>", "\[Rule]", "192"}], ",", 
+     RowBox[{"\<\"PC\"\>", "\[Rule]", "2112"}], ",", 
+     RowBox[{"\<\"OP\"\>", "\[Rule]", "2112"}], ",", 
+     RowBox[{"\<\"Gap\"\>", "\[Rule]", "288"}]}], "\[RightAssociation]"}]}],
+  SequenceForm[
+  "Expected row counts:       ", <|
+   "IC" -> 192, "Mallows" -> 192, "PC" -> 2112, "OP" -> 2112, "Gap" -> 288|>],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.995473982866495*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"936fa9bc-e29d-864b-afc0-a1a363b5191e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Actual row counts:         \"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"IC\"\>", "\[Rule]", "192"}], ",", 
+     RowBox[{"\<\"Mallows\"\>", "\[Rule]", "192"}], ",", 
+     RowBox[{"\<\"PC\"\>", "\[Rule]", "2112"}], ",", 
+     RowBox[{"\<\"OP\"\>", "\[Rule]", "2112"}], ",", 
+     RowBox[{"\<\"Gap\"\>", "\[Rule]", "288"}]}], "\[RightAssociation]"}]}],
+  SequenceForm[
+  "Actual row counts:         ", <|
+   "IC" -> 192, "Mallows" -> 192, "PC" -> 2112, "OP" -> 2112, "Gap" -> 288|>],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.995473982874607*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"da117650-8628-3645-baab-01b0abc73d1e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Row counts correct:        \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["Row counts correct:        ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.9954739828786125`*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"13a3cb97-f9f1-df4f-9ebf-87737f42ae16"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All six rules present:     \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["All six rules present:     ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.99547398288307*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"e2aea57b-d566-f547-98dd-0d58a4766997"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Main metrics correct:      \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["Main metrics correct:      ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.995473982885172*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"a9060a59-3c5f-bb44-9736-2f3157707d16"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Gap metric correct:        \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["Gap metric correct:        ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.9954739828871784`*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"ce8aaf64-8663-4540-99a7-c29975cd740f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All values numeric:        \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["All values numeric:        ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.995473982892929*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"e87ff6aa-d144-6c4e-b4a4-e74313ed231e"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All CSV files exist:       \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["All CSV files exist:       ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.9954739828949337`*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"cbc2f3a4-fc1c-a846-b808-36a339cb12c9"],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.995473982899557*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"56f42cc4-ba7a-424b-8f09-a5ede118e1b0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"MAIN PIPELINE OK:           \"\>", "\[InvisibleSpace]", 
+   "True"}],
+  SequenceForm["MAIN PIPELINE OK:           ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995461044343376*^9, 3.9954614880204105`*^9, 
+  3.995470405796871*^9, 3.9954739829033127`*^9},
+ CellLabel->
+  "During evaluation of \
+In[260]:=",ExpressionUUID->"7e8f0c48-03d7-504b-aaa4-f9e0a457861f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "9"}]}], ")"}], " ", "Mallows", " ", "central"}], "-", 
+    RowBox[{"winner", " ", 
+     RowBox[{"robustness", ":", 
+      RowBox[{
+       RowBox[{"parameters", "--"}], "-"}]}]}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"mallowsPhiList", "=", 
+     RowBox[{"N", "@", 
+      RowBox[{"Range", "[", 
+       RowBox[{"0.01", ",", "0.99", ",", "0.098"}], "]"}]}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mallowsMList", "=", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", "5", ",", "7", ",", "10"}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mallowsNList", "=", 
+     RowBox[{"{", "51", "}"}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"mallowsS", "=", "2000"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"mallowsQ", "=", 
+     RowBox[{"2", "/", "3"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mallowsP", "=", 
+     RowBox[{"N", "[", 
+      RowBox[{
+       RowBox[{"Log", "[", "3", "]"}], "/", 
+       RowBox[{"Log", "[", "2", "]"}]}], "]"}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"mallowsRules", "=", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Borda\>\"", ",", "\"\<Coombs\>\"", ",", "\"\<Fallback\>\"",
+        ",", "\"\<QR\>\"", ",", "\"\<SDM\>\"", ",", "\"\<Plurality\>\""}], 
+      "}"}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"mallowsTieBreak", "=", "\"\<RandomSeeded\>\""}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"mallowsBaseSeed", "=", "baseSeed"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<m\>\"", "->", "mallowsMList"}], ",", 
+       RowBox[{"\"\<n\>\"", "->", "mallowsNList"}], ",", 
+       RowBox[{"\"\<phi\>\"", "->", "mallowsPhiList"}], ",", 
+       RowBox[{"\"\<q\>\"", "->", "mallowsQ"}], ",", 
+       RowBox[{"\"\<p\>\"", "->", "mallowsP"}], ",", 
+       RowBox[{"\"\<S\>\"", "->", "mallowsS"}], ",", 
+       RowBox[{"\"\<Rules\>\"", "->", "mallowsRules"}], ",", 
+       RowBox[{"\"\<BaseSeed\>\"", "->", "mallowsBaseSeed"}], ",", 
+       RowBox[{"\"\<TieBreak\>\"", "->", "mallowsTieBreak"}]}], "|>"}], "]"}],
+     ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.995453048512226*^9, 3.995453052484352*^9}, {
+  3.995460398883152*^9, 3.9954603989626904`*^9}},
+ CellLabel->
+  "In[111]:=",ExpressionUUID->"e4a54b4c-0a65-ee4a-b9ad-4094abc8adcb"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"m\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "5", ",", "7", ",", "10"}], "}"}]}], ",", 
+   RowBox[{"\<\"n\"\>", "\[Rule]", 
+    RowBox[{"{", "51", "}"}]}], ",", 
+   RowBox[{"\<\"phi\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "0.01`", ",", "0.108`", ",", "0.20600000000000002`", ",", 
+      "0.30400000000000005`", ",", "0.402`", ",", "0.5`", ",", 
+      "0.5980000000000001`", ",", "0.6960000000000001`", ",", "0.794`", ",", 
+      "0.892`", ",", "0.99`"}], "}"}]}], ",", 
+   RowBox[{"\<\"q\"\>", "\[Rule]", 
+    FractionBox["2", "3"]}], ",", 
+   RowBox[{"\<\"p\"\>", "\[Rule]", "1.5849625007211563`"}], ",", 
+   RowBox[{"\<\"S\"\>", "\[Rule]", "2000"}], ",", 
+   RowBox[{"\<\"Rules\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"Borda\"\>", ",", "\<\"Coombs\"\>", ",", "\<\"Fallback\"\>", 
+      ",", "\<\"QR\"\>", ",", "\<\"SDM\"\>", ",", "\<\"Plurality\"\>"}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"BaseSeed\"\>", "\[Rule]", "123456"}], ",", 
+   RowBox[{"\<\"TieBreak\"\>", "\[Rule]", "\<\"RandomSeeded\"\>"}]}], 
+  "\[RightAssociation]"}]], "Print",
+ CellChangeTimes->{3.9954530550512924`*^9, 3.9954704124969788`*^9},
+ CellLabel->
+  "During evaluation of \
+In[111]:=",ExpressionUUID->"17fb86fc-d8d6-3544-ad05-576254c182d9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "10"}]}], ")"}], " ", "Mallows", " ", "central"}], "-", 
+    RowBox[{"winner", " ", 
+     RowBox[{"robustness", ":", 
+      RowBox[{
+       RowBox[{"run", " ", 
+        RowBox[{"experiment", "--"}]}], "-"}]}]}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Running Mallows central-winner robustness sweep...\>\"",
+      "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"ClearAll", "[", "runMallowsCentralReplication", "]"}], ";"}], 
+   "\n", "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"runMallowsCentralReplication", "[", 
+      RowBox[{"m_", ",", "n_", ",", "phi_", ",", "rep_"}], "]"}], ":=", 
+     RowBox[{"BlockRandom", "[", 
+      RowBox[{
+       RowBox[{"SeedRandom", "[", 
+        RowBox[{"Hash", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "mallowsBaseSeed", ",", "\"\<MallowsCentral\>\"", ",", "m", ",", 
+            "n", ",", "phi", ",", "rep"}], "}"}], ",", "\"\<SHA256\>\""}], 
+         "]"}], "]"}], ";", "\n", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"perm", ",", "prof", ",", "winners"}], "}"}], ",", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{
+           "Mallows", " ", "profile", " ", "around", " ", "the", " ", "fixed",
+             " ", "central", " ", "ranking", " ", "1"}], ",", "2", ",", "...",
+            ",", "m"}], "*)"}], 
+         RowBox[{
+          RowBox[{"perm", "=", 
+           RowBox[{"GenerateMallowsProfile", "[", 
+            RowBox[{"m", ",", "n", ",", "phi", ",", 
+             RowBox[{"Range", "[", "m", "]"}]}], "]"}]}], ";", "\n", 
+          RowBox[{"prof", "=", 
+           RowBox[{"MakeProfile", "[", "perm", "]"}]}], ";", "\n", 
+          RowBox[{"winners", "=", 
+           RowBox[{"WinnersAll", "[", 
+            RowBox[{"prof", ",", "mallowsQ", ",", "mallowsP", ",", 
+             RowBox[{"\"\<MaxRank\>\"", "->", "Automatic"}], ",", 
+             RowBox[{"\"\<TieBreak\>\"", "->", "mallowsTieBreak"}]}], "]"}]}],
+           ";", "\n", 
+          RowBox[{"Association", "@", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"rule", "->", 
+              RowBox[{"Boole", "[", 
+               RowBox[{
+                RowBox[{"winners", "[", "rule", "]"}], "===", "1"}], "]"}]}], 
+             ",", 
+             RowBox[{"{", 
+              RowBox[{"rule", ",", "mallowsRules"}], "}"}]}], "]"}]}]}]}], 
+        "]"}]}], "]"}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"DistributeDefinitions", "[", 
+     RowBox[{
+     "runMallowsCentralReplication", ",", "mallowsBaseSeed", ",", "mallowsQ", 
+      ",", "mallowsP", ",", "mallowsTieBreak", ",", "mallowsRules", ",", 
+      "GenerateMallowsProfile", ",", "MallowsSampleKendall", ",", 
+      "MakeProfile", ",", "WinnersAll", ",", "WinnerBorda", ",", 
+      "WinnerPlurality", ",", "WinnerCoombs", ",", "WinnerQRCompromise", ",", 
+      "WinnerSDM", ",", "WinnerFallback", ",", "TieBreakPick", ",", 
+      "TieKeyDefault", ",", "ArgMaxCandidates", ",", "ArgMinCandidates"}], 
+     "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"mallowsCentralRaw", "=", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", "repResults", "}"}], ",", 
+           RowBox[{
+            RowBox[{"repResults", "=", 
+             RowBox[{"ParallelTable", "[", 
+              RowBox[{
+               RowBox[{"runMallowsCentralReplication", "[", 
+                RowBox[{"m", ",", "n", ",", "phi", ",", "rep"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"rep", ",", "1", ",", "mallowsS"}], "}"}]}], "]"}]}], 
+            ";", "\n", 
+            RowBox[{"Flatten", "[", 
+             RowBox[{
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"<|", 
+                 RowBox[{
+                  RowBox[{"\"\<m\>\"", "->", "m"}], ",", 
+                  RowBox[{"\"\<n\>\"", "->", "n"}], ",", 
+                  RowBox[{"\"\<phi\>\"", "->", "phi"}], ",", 
+                  RowBox[{"\"\<Rule\>\"", "->", "rule"}], ",", 
+                  RowBox[{"\"\<CentralWinnerRate\>\"", "->", 
+                   RowBox[{"N", "@", 
+                    RowBox[{"Mean", "[", 
+                    RowBox[{"Lookup", "[", 
+                    RowBox[{"repResults", ",", "rule"}], "]"}], "]"}]}]}]}], 
+                 "|>"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"rule", ",", "mallowsRules"}], "}"}]}], "]"}], ",", 
+              "1"}], "]"}]}]}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"m", ",", "mallowsMList"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "mallowsNList"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"phi", ",", "mallowsPhiList"}], "}"}]}], "]"}], ",", "3"}], 
+      "]"}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Mallows central-winner sweep completed. Rows = \>\"", ",", 
+      RowBox[{"Length", "[", "mallowsCentralRaw", "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.995453096930252*^9, 3.9954531065370255`*^9}, {
+  3.995460401857315*^9, 3.9954604024972935`*^9}},
+ CellLabel->
+  "In[121]:=",ExpressionUUID->"c81fe9e4-1f94-d34a-be8b-837638964317"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Running Mallows central-winner robustness sweep...\"\>"], \
+"Print",
+ CellChangeTimes->{3.995453109003748*^9, 3.99545898924897*^9, 
+  3.995470415666527*^9},
+ CellLabel->
+  "During evaluation of \
+In[121]:=",ExpressionUUID->"96fddefe-4ce6-bb49-ad36-46d70f2bb246"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Mallows central-winner sweep completed. Rows = \"\>", "\[InvisibleSpace]",
+    "264"}],
+  SequenceForm["Mallows central-winner sweep completed. Rows = ", 264],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.995453109003748*^9, 3.99545898924897*^9, 
+  3.995470525402315*^9},
+ CellLabel->
+  "During evaluation of \
+In[121]:=",ExpressionUUID->"b172edab-1835-4049-a19e-c2ddb5632c39"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"--", 
+       RowBox[{"-", "11"}]}], ")"}], " ", "Mallows", " ", "central"}], "-", 
+    RowBox[{"winner", " ", 
+     RowBox[{"robustness", ":", 
+      RowBox[{
+       RowBox[{"validate", " ", "and", " ", 
+        RowBox[{"export", "--"}]}], "-"}]}]}]}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "Print", "[", "\"\<Validating Mallows central-winner robustness \
+sweep...\>\"", "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"expectedMallowsCentralRows", "=", 
+     RowBox[{
+      RowBox[{"Length", "[", "mallowsMList", "]"}], "*", 
+      RowBox[{"Length", "[", "mallowsNList", "]"}], "*", 
+      RowBox[{"Length", "[", "mallowsPhiList", "]"}], "*", 
+      RowBox[{"Length", "[", "mallowsRules", "]"}]}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"rowCountCheck", "=", 
+     RowBox[{
+      RowBox[{"Length", "[", "mallowsCentralRaw", "]"}], "===", 
+      "expectedMallowsCentralRows"}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"rulesCentralCheck", "=", 
+     RowBox[{
+      RowBox[{"Sort", "@", 
+       RowBox[{"DeleteDuplicates", "[", 
+        RowBox[{"Lookup", "[", 
+         RowBox[{"mallowsCentralRaw", ",", "\"\<Rule\>\""}], "]"}], "]"}]}], "===", 
+      RowBox[{"Sort", "@", "mallowsRules"}]}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"numericCentralCheck", "=", 
+     RowBox[{"And", "@@", 
+      RowBox[{"(", 
+       RowBox[{"NumericQ", "/@", 
+        RowBox[{"Lookup", "[", 
+         RowBox[{"mallowsCentralRaw", ",", "\"\<CentralWinnerRate\>\""}], 
+         "]"}]}], ")"}]}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"rangeCentralCheck", "=", 
+     RowBox[{"And", "@@", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"0", "<=", "#", "<=", "1"}], "&"}], "/@", 
+        RowBox[{"Lookup", "[", 
+         RowBox[{"mallowsCentralRaw", ",", "\"\<CentralWinnerRate\>\""}], 
+         "]"}]}], ")"}]}]}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"gridCentralCheck", "=", 
+     RowBox[{"And", "@@", 
+      RowBox[{"Flatten", "@", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Count", "[", 
+           RowBox[{"mallowsCentralRaw", ",", 
+            RowBox[{"a_Association", "/;", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"a", "[", "\"\<m\>\"", "]"}], "==", "m"}], "&&", 
+              RowBox[{
+               RowBox[{"a", "[", "\"\<n\>\"", "]"}], "==", "n"}], "&&", 
+              RowBox[{
+               RowBox[{"a", "[", "\"\<phi\>\"", "]"}], "==", "phi"}]}]}]}], 
+           "]"}], "==", 
+          RowBox[{"Length", "[", "mallowsRules", "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"m", ",", "mallowsMList"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "mallowsNList"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"phi", ",", "mallowsPhiList"}], "}"}]}], "]"}]}]}]}], ";"}],
+    "\n", "\n", 
+   RowBox[{
+    RowBox[{"mallowsCentralOK", "=", 
+     RowBox[{"And", "[", 
+      RowBox[{
+      "rowCountCheck", ",", "rulesCentralCheck", ",", "numericCentralCheck", ",",
+        "rangeCentralCheck", ",", "gridCentralCheck"}], "]"}]}], ";"}], "\n", 
+   "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Expected rows:             \>\"", ",", 
+      "expectedMallowsCentralRows"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Actual rows:               \>\"", ",", 
+      RowBox[{"Length", "[", "mallowsCentralRaw", "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Row count correct:         \>\"", ",", "rowCountCheck"}], 
+     "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<All six rules present:     \>\"", ",", 
+      "rulesCentralCheck"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<All rates numeric:         \>\"", ",", 
+      "numericCentralCheck"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<All rates in [0,1]:        \>\"", ",", 
+      "rangeCentralCheck"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Grid complete:             \>\"", ",", "gridCentralCheck"}],
+      "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<MALLOWS CENTRAL SWEEP OK:  \>\"", ",", "mallowsCentralOK"}],
+      "]"}], ";"}], "\n", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"TrueQ", "[", "mallowsCentralOK", "]"}], ",", 
+      RowBox[{
+       RowBox[{"mallowsCentralFile", "=", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"tabDir", ",", "\"\<mallows_central_support_long.csv\>\""}],
+           "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"mallowsCentralColumns", "=", 
+        RowBox[{"Keys", "@", 
+         RowBox[{"First", "@", "mallowsCentralRaw"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Export", "[", 
+        RowBox[{"mallowsCentralFile", ",", 
+         RowBox[{"Prepend", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Lookup", "[", 
+               RowBox[{"#", ",", "mallowsCentralColumns"}], "]"}], "&"}], 
+             ")"}], "/@", "mallowsCentralRaw"}], ",", 
+           "mallowsCentralColumns"}], "]"}], ",", "\"\<CSV\>\""}], "]"}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<Saved CSV: \>\"", ",", "mallowsCentralFile"}], "]"}], 
+       ";"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9954533406997166`*^9, 3.9954533490030613`*^9}, 
+   3.9954591368919144`*^9, {3.995460405986021*^9, 3.995460406058382*^9}},
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"31710941-70a3-5346-aa00-d4d9167065ff"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Validating Mallows central-winner robustness \
+sweep...\"\>"], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.9954706070023518`*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"060ccc43-26d7-c245-af84-2192444189c8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Expected rows:             \"\>", "\[InvisibleSpace]", "264"}],
+  SequenceForm["Expected rows:             ", 264],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.9954706070446053`*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"2e01641a-53d4-c642-b3c2-14c55306e7ae"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Actual rows:               \"\>", "\[InvisibleSpace]", "264"}],
+  SequenceForm["Actual rows:               ", 264],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.995470607050829*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"4313ae27-67d8-db4d-8358-d14705a2c320"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Row count correct:         \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["Row count correct:         ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.995470607051338*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"be85dcc6-de91-e842-aedb-19b7fed291e0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All six rules present:     \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["All six rules present:     ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.995470607054508*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"7394bad5-b2da-c14c-aa7c-19e5c1e14342"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All rates numeric:         \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["All rates numeric:         ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.9954706070565147`*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"31da21aa-8aac-b74f-a119-49407b2dc7c3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"All rates in [0,1]:        \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["All rates in [0,1]:        ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.9954706070585194`*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"369c3066-61c8-cb4a-b8cf-e49e1de1816c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Grid complete:             \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["Grid complete:             ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.995470607060524*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"aac642cd-3bf1-dd49-8464-1ac9ba8ccfe6"],
+
+Cell[BoxData["\<\"\"\>"], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.9954706070625305`*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"c84f51b9-46cb-ba4e-99b6-8f5a3bcf6aa1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"MALLOWS CENTRAL SWEEP OK:  \"\>", "\[InvisibleSpace]", "True"}],
+  SequenceForm["MALLOWS CENTRAL SWEEP OK:  ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.995470607064535*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"9604911b-0c9c-4a4a-9e54-a2e01f573006"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Saved CSV: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\konferencije\\\\2026\\\\GDN \
+2026\\\\GitHub\\\\gdn-compromise-condorcet\\\\output\\\\tables\\\\mallows_\
+central_support_long.csv\"\>"}],
+  SequenceForm[
+  "Saved CSV: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\konferencije\\2026\\GDN \
+2026\\GitHub\\gdn-compromise-condorcet\\output\\tables\\mallows_central_\
+support_long.csv"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9954533510949516`*^9, 3.9954591404329987`*^9, 
+  3.995470607066551*^9},
+ CellLabel->
+  "During evaluation of \
+In[127]:=",ExpressionUUID->"4371797f-0758-7b4d-a4ce-78c96fc9d4c0"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1428, 729.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (March 14, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b21f8924-6a77-2b44-ad25-b17e6d5e3497"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 2258, 63, 275, "Input",ExpressionUUID->"c2492a25-1ac1-ae4a-8e6d-189991bc2162"],
+Cell[CellGroupData[{
+Cell[2859, 89, 438, 8, 22, "Print",ExpressionUUID->"4bae2287-cd58-1246-8ea8-0006b18620b1"],
+Cell[3300, 99, 438, 8, 22, "Print",ExpressionUUID->"a654fd99-2e44-ee4f-8ebf-510a74219b87"],
+Cell[3741, 109, 441, 8, 22, "Print",ExpressionUUID->"a054b6fd-f368-bd40-b37a-bfd76d966502"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4231, 123, 2008, 58, 256, "Input",ExpressionUUID->"cd715ff7-ecb4-2a4e-bd46-8cb9bd2909c6"],
+Cell[6242, 183, 300, 6, 22, "Print",ExpressionUUID->"e1a27e9f-f8d2-e94e-9091-01f0c0529f42"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6579, 194, 3397, 89, 560, "Input",ExpressionUUID->"1fdb9c94-7774-2940-bf5a-07e67cdf9aca"],
+Cell[CellGroupData[{
+Cell[10001, 287, 404, 10, 22, "Print",ExpressionUUID->"037bdf86-ba8b-1245-8e74-2c6a40a35bfd"],
+Cell[10408, 299, 1377, 34, 36, "Print",ExpressionUUID->"c6ee8092-6f36-d04f-92e9-a6e1876454e1"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11834, 339, 3436, 85, 465, "Input",ExpressionUUID->"22750e0d-edc5-0b48-bc02-4e508e3c59b8"],
+Cell[CellGroupData[{
+Cell[15295, 428, 305, 5, 22, "Print",ExpressionUUID->"debae5a1-588c-e04f-9618-245bf8424688"],
+Cell[15603, 435, 825, 18, 22, "Print",ExpressionUUID->"9e6f591d-0e75-0243-a89e-fba0a36de92b"],
+Cell[16431, 455, 951, 19, 22, "Print",ExpressionUUID->"2bb9ffec-5a85-e94e-95fa-36bc5def3b1d"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17431, 480, 3485, 86, 484, "Input",ExpressionUUID->"4b33ec5c-54aa-2e4a-97b9-60bf4e389512"],
+Cell[CellGroupData[{
+Cell[20941, 570, 257, 5, 22, "Print",ExpressionUUID->"ceb72304-555e-184c-b8b7-6f433a0b355a"],
+Cell[21201, 577, 777, 18, 22, "Print",ExpressionUUID->"fa259c75-bce2-ec40-b3d8-22d9b9440007"],
+Cell[21981, 597, 903, 19, 22, "Print",ExpressionUUID->"aa197868-7526-3346-a105-5e912fe59f67"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22933, 622, 3392, 85, 522, "Input",ExpressionUUID->"b948fd21-ecc5-e64a-9a44-80e2b7140e3a"],
+Cell[CellGroupData[{
+Cell[26350, 711, 257, 5, 22, "Print",ExpressionUUID->"5dff9256-caec-5e4d-9d1d-7dc29d64afd3"],
+Cell[26610, 718, 777, 18, 22, "Print",ExpressionUUID->"3d37ae75-80a5-364f-88a9-5e52ef83af17"],
+Cell[27390, 738, 899, 19, 22, "Print",ExpressionUUID->"3c528c65-27c9-4248-8f0c-12e1d45d4b54"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28338, 763, 3486, 86, 484, "Input",ExpressionUUID->"aaeaf239-53e9-d449-a1c6-6b25df2d0968"],
+Cell[CellGroupData[{
+Cell[31849, 853, 265, 5, 22, "Print",ExpressionUUID->"f874efac-2c66-974e-a58b-af3291c436e8"],
+Cell[32117, 860, 791, 19, 22, "Print",ExpressionUUID->"8c383ccf-a435-8c41-935b-6ed2d43d56b6"],
+Cell[32911, 881, 925, 20, 39, "Print",ExpressionUUID->"a184f95d-080d-6d4f-aa15-2bf12baaa854"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33885, 907, 3822, 95, 484, "Input",ExpressionUUID->"22c13313-411b-824b-9c03-3b7287325765"],
+Cell[CellGroupData[{
+Cell[37732, 1006, 284, 6, 22, "Print",ExpressionUUID->"91e133f6-0b3c-a048-876c-ef0d26414125"],
+Cell[38019, 1014, 516, 12, 22, "Print",ExpressionUUID->"ca79f8f3-8578-7245-aed3-b5ed3cd801ba"],
+Cell[38538, 1028, 780, 18, 22, "Print",ExpressionUUID->"0ff9b8a6-9e32-0745-9fd9-f378bc5f4ce4"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39367, 1052, 9878, 262, 1188, "Input",ExpressionUUID->"12578d0e-8398-704e-a4d8-a259a758f47f"],
+Cell[CellGroupData[{
+Cell[49270, 1318, 298, 5, 22, "Print",ExpressionUUID->"504f7c31-449f-ea42-9804-d8bf6a801045"],
+Cell[49571, 1325, 827, 18, 22, "Print",ExpressionUUID->"936fa9bc-e29d-864b-afc0-a1a363b5191e"],
+Cell[50401, 1345, 827, 18, 22, "Print",ExpressionUUID->"da117650-8628-3645-baab-01b0abc73d1e"],
+Cell[51231, 1365, 417, 9, 22, "Print",ExpressionUUID->"13a3cb97-f9f1-df4f-9ebf-87737f42ae16"],
+Cell[51651, 1376, 414, 9, 22, "Print",ExpressionUUID->"e2aea57b-d566-f547-98dd-0d58a4766997"],
+Cell[52068, 1387, 415, 9, 22, "Print",ExpressionUUID->"a9060a59-3c5f-bb44-9736-2f3157707d16"],
+Cell[52486, 1398, 417, 9, 22, "Print",ExpressionUUID->"ce8aaf64-8663-4540-99a7-c29975cd740f"],
+Cell[52906, 1409, 415, 9, 22, "Print",ExpressionUUID->"e87ff6aa-d144-6c4e-b4a4-e74313ed231e"],
+Cell[53324, 1420, 417, 9, 22, "Print",ExpressionUUID->"cbc2f3a4-fc1c-a846-b808-36a339cb12c9"],
+Cell[53744, 1431, 253, 5, 22, "Print",ExpressionUUID->"56f42cc4-ba7a-424b-8f09-a5ede118e1b0"],
+Cell[54000, 1438, 423, 10, 22, "Print",ExpressionUUID->"7e8f0c48-03d7-504b-aaa4-f9e0a457861f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54472, 1454, 2463, 64, 389, "Input",ExpressionUUID->"e4a54b4c-0a65-ee4a-b9ad-4094abc8adcb"],
+Cell[56938, 1520, 1334, 30, 64, "Print",ExpressionUUID->"17fb86fc-d8d6-3544-ad05-576254c182d9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58309, 1555, 5551, 133, 465, "Input",ExpressionUUID->"c81fe9e4-1f94-d34a-be8b-837638964317"],
+Cell[CellGroupData[{
+Cell[63885, 1692, 280, 6, 22, "Print",ExpressionUUID->"96fddefe-4ce6-bb49-ad36-46d70f2bb246"],
+Cell[64168, 1700, 432, 10, 22, "Print",ExpressionUUID->"b172edab-1835-4049-a19e-c2ddb5632c39"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64649, 1716, 6035, 157, 732, "Input",ExpressionUUID->"31710941-70a3-5346-aa00-d4d9167065ff"],
+Cell[CellGroupData[{
+Cell[70709, 1877, 290, 6, 22, "Print",ExpressionUUID->"060ccc43-26d7-c245-af84-2192444189c8"],
+Cell[71002, 1885, 395, 9, 22, "Print",ExpressionUUID->"2e01641a-53d4-c642-b3c2-14c55306e7ae"],
+Cell[71400, 1896, 393, 9, 22, "Print",ExpressionUUID->"4313ae27-67d8-db4d-8358-d14705a2c320"],
+Cell[71796, 1907, 395, 9, 22, "Print",ExpressionUUID->"be85dcc6-de91-e842-aedb-19b7fed291e0"],
+Cell[72194, 1918, 395, 9, 22, "Print",ExpressionUUID->"7394bad5-b2da-c14c-aa7c-19e5c1e14342"],
+Cell[72592, 1929, 397, 9, 22, "Print",ExpressionUUID->"31da21aa-8aac-b74f-a119-49407b2dc7c3"],
+Cell[72992, 1940, 397, 9, 22, "Print",ExpressionUUID->"369c3066-61c8-cb4a-b8cf-e49e1de1816c"],
+Cell[73392, 1951, 395, 9, 22, "Print",ExpressionUUID->"aac642cd-3bf1-dd49-8464-1ac9ba8ccfe6"],
+Cell[73790, 1962, 235, 5, 22, "Print",ExpressionUUID->"c84f51b9-46cb-ba4e-99b6-8f5a3bcf6aa1"],
+Cell[74028, 1969, 395, 9, 22, "Print",ExpressionUUID->"9604911b-0c9c-4a4a-9e54-a2e01f573006"],
+Cell[74426, 1980, 814, 19, 22, "Print",ExpressionUUID->"4371797f-0758-7b4d-a4ce-78c96fc9d4c0"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
